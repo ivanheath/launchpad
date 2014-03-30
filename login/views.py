@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from main.views import main
 
 def index(request):
-    return render(request, 'login/index.html')
+    if request.user.is_authenticated():
+	return main(request)
+    else:
+        return render(request, 'login/index.html')
 
 def authenticater(request):
     username = request.POST['username']
@@ -18,3 +21,8 @@ def authenticater(request):
 	    return HttpResponse("fail")
     else:
 	return HttpResponse("login failed")
+
+def logout_now(request):
+    #logout(request)
+    logout(request)
+    return index(request)

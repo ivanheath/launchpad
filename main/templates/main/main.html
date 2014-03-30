@@ -1,16 +1,34 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
 <title>Launchpad</title>
+<link rel="stylesheet" type="test/css" href="{% static 'main/main.css' %}">
 </head>
 <body>
-<div id="navbar" style="width:100px;height:300px;align=left;float:left;background-color:grey">
-<table>
-<tr><td>inventory</td></tr>
-<tr><td>omega</td></tr>
-<tr><td>drivetool</td></tr>
-</table>
-</div>
-<h1>we have liftoff</h1>
+
+   <div class="navbar">
+   <a href="{% url main %}" id="navbarlink" style="background-color:#C0C0C0;">{{ username }}</a>
+   <a href="http://10.15.14.101/AlphaInventoryManager/" id="navbarlink" target="_blank">Alpha</a>
+   <a href="http://omega.wowrack.com/support/" id="navbarlink" target="_blank">Omega</a>
+   <a href="https://portal.wowrack.com/wiki/Wiki%20Pages/Datacenter%20Tech%20Support%20Wiki.aspx" id="navbarlink" target="_blank">DC team Wiki</a>
+   <a href="https://esupport.wowrack.com/staff/index.php?/Base/Home/Index" id="navbarlink" target="_blank">Wowrack</a>
+   <a href="https://esupport.serverstadium.com/staff/index.php?/Base/Dashboard/Index" id="navbarlink" target="_blank">Server Stadium</a>
+   <a href="https://10.10.6.102/ssaddip/" id="navbarlink" target="_blank">IP Assigner</a>
+   <a href="http://10.15.14.27" id="navbarlink" target="_blank">Drivetool</a>
+   <a href="{% url logout %}" id="navbarlink" style="border-style:none;">logout</a>
+   </div>
+  <div class="content">
+   <h1>news feed will go here</h1>
+    <p>some text and a <a href="www.google.com">link</a></p>
+    <p>text text text text text</p>
+    <p>text text text text text text text text text text text text text text text
+       text text text text text text text text text text text text text text text
+       text text text text text text text text text text text text text text text
+       text text text text text text text text text text text text text text text
+       text text text text text text text text text text text text text text text
+       text text text text text text text text text text text text text text text</p>
+
+  </div>
 </body>
 </html>
