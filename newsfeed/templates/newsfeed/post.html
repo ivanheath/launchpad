@@ -1,0 +1,7 @@
+<h3>post to the news feed</h3>
+<form name="addnews" action="{% url posttonews %}" method="POST">
+{% csrf_token %}
+<p>title:<input type="text" name="title"></p>
+<textarea rows="10" cols="50" name="newstext"></textarea>
+<p><input type="submit" value="post"></p>
+</form>

@@ -8,26 +8,27 @@
 <body>
 
    <div class="navbar">
-   <a href="{% url main %}" id="navbarlink" style="background-color:#C0C0C0;">{{ username }}</a>
-   <a href="http://10.15.14.101/AlphaInventoryManager/" id="navbarlink" target="_blank">Alpha</a>
-   <a href="http://omega.wowrack.com/support/" id="navbarlink" target="_blank">Omega</a>
-   <a href="https://portal.wowrack.com/wiki/Wiki%20Pages/Datacenter%20Tech%20Support%20Wiki.aspx" id="navbarlink" target="_blank">DC team Wiki</a>
-   <a href="https://esupport.wowrack.com/staff/index.php?/Base/Home/Index" id="navbarlink" target="_blank">Wowrack</a>
-   <a href="https://esupport.serverstadium.com/staff/index.php?/Base/Dashboard/Index" id="navbarlink" target="_blank">Server Stadium</a>
-   <a href="https://10.10.6.102/ssaddip/" id="navbarlink" target="_blank">IP Assigner</a>
-   <a href="http://10.15.14.27" id="navbarlink" target="_blank">Drivetool</a>
-   <a href="{% url logout %}" id="navbarlink" style="border-style:none;">logout</a>
+   <a href="{% url main %}" class="navbarlink" style="background-color:#C0C0C0;">{{ username }}</a>
+   <a href="http://10.15.14.101/AlphaInventoryManager/" class="navbarlink" target="_blank">Alpha</a>
+   <a href="http://omega.wowrack.com/support/" class="navbarlink" target="_blank">Omega</a>
+   <a href="https://portal.wowrack.com/wiki/Wiki%20Pages/Datacenter%20Tech%20Support%20Wiki.aspx" class="navbarlink" target="_blank">DC team Wiki</a>
+   <a href="https://esupport.wowrack.com/staff/index.php?/Base/Home/Index" class="navbarlink" target="_blank">Wowrack</a>
+   <a href="https://esupport.serverstadium.com/staff/index.php?/Base/Dashboard/Index" class="navbarlink" target="_blank">Server Stadium</a>
+   <a href="https://10.10.6.102/ssaddip/" class="navbarlink" target="_blank">IP Assigner</a>
+   <a href="http://10.15.14.27" class="navbarlink" target="_blank">Drivetool</a>
+   <a href="{% url logout %}" class="navbarlink" style="border-style:none;">logout</a>
    </div>
   <div class="content">
-   <h1>news feed will go here</h1>
-    <p>some text and a <a href="www.google.com">link</a></p>
-    <p>text text text text text</p>
-    <p>text text text text text text text text text text text text text text text
-       text text text text text text text text text text text text text text text
-       text text text text text text text text text text text text text text text
-       text text text text text text text text text text text text text text text
-       text text text text text text text text text text text text text text text
-       text text text text text text text text text text text text text text text</p>
+   <h1 id="newstitle">DC Team News</h1>
+   <h5><a href="{% url postnews %}">post to the feed</a></h5>
+{% for i in currentnews %}
+    <div class="news">
+    <h2>{{ i.news_title }}</h2>
+    <p>{{ i.news_body }}</p>
+    <h6>posted by: {{ i.user_name }} on: {{ i.pub_date }}</h6>
+    </div>
+    <br />
+{% endfor %}
 
   </div>
 </body>

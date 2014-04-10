@@ -23,7 +23,7 @@ border-top:none;
 padding:5px;
 box-shadow: 2px 2px 7px #888888;
 }
-#navbarlink
+.navbarlink
 {
 font-family:Arial,Helvetica,Sans-serif;
 display:block;
@@ -38,7 +38,7 @@ border-left:none;
 border-right:none;
 border-color:#C0C0C0;
 }
-a:hover#navbarlink
+a:hover.navbarlink
 {
 background-color:grey;
 }
@@ -47,7 +47,7 @@ background-color:grey;
 div.content
 {
 position:relative;
-width:70%;
+width:500px;
 left:170px;
 }
 
@@ -55,5 +55,17 @@ left:170px;
 {
 position:relative;
 width:90%;
-align:left;
+align:center;
+}
+#newstitle
+{
+background-color:grey;
+text-align:center;
+}
+.news
+{
+border-width:1px;
+border-color:grey;
+border-style:solid;
+padding:5px;
 }
