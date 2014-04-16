@@ -1,3 +1,8 @@
+{% extends "newsfeed/side.html" %}
+{% block title %}
+post to news
+{% endblock %}
+{% block content %}
 <h3>post to the news feed</h3>
 <form name="addnews" action="{% url posttonews %}" method="POST">
 {% csrf_token %}
@@ -5,3 +10,4 @@
 <textarea rows="10" cols="50" name="newstext"></textarea>
 <p><input type="submit" value="post"></p>
 </form>
+{% endblock %}

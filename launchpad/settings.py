@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'login',
     'main',
     'newsfeed',
+    'drivetool',
 )
 
 # A sample logging configuration. The only tangible logging

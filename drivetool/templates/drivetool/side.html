@@ -1,0 +1,11 @@
+{% extends "main/base.html" %}
+{% block sidebar %}
+<div class="navbarsec">
+<div class="navbarhead">Tools</div>
+<a href="{% url drivetool %}" class="navbarlink">scan</a>
+<a href="{% url wipedrives %}" class="navbarlink">wipe</a>
+<a href="{% url cleandrives %}" class="navbarlink">clean</a>
+<a href="{% url clonedrives %}" class="navbarlink">clone</a>
+<a href="{% url configure %}" class="navbarlink">configure</a>
+</div>
+{% endblock %}

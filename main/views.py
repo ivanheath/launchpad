@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from newsfeed.models import newsitem
 
-
 def main(request):
     if request.user.is_authenticated():
 	username = request.user.username
@@ -19,3 +18,4 @@ def main(request):
 
 def news_added(sender, instance, signal, *args, **kwargs):
     return main(request)
+

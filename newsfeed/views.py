@@ -12,7 +12,9 @@ from newsfeed import signals
 def newspostform(request):
     if request.user.is_authenticated():
 	username = request.user.username
-	return render(request, 'newsfeed/post.html')
+	return render(request, 'newsfeed/post.html',
+		     {"username":username,
+		     })
 
 def posttonews(request):
     if request.user.is_authenticated():
@@ -27,5 +29,5 @@ def posttonews(request):
 	else:
 	    addnews = newsitem(user_name=username, news_title=title, news_body=newstext, pub_date=now)
 	    addnews.save()
-	    return HttpResponseRedirect('http://10.15.14.102:3550')
+	    return HttpResponseRedirect('http://10.15.14.102')
 

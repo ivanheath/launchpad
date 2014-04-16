@@ -13,13 +13,12 @@ padding:3px;
 {
 position:absolute;
 left:5px;
-top:0px;
+top:5px;
 width:100px;
 text-align:center;
 background-color:#D0D0D0;
 border-style:solid;
 border-color:#383838;
-border-top:none;
 padding:5px;
 box-shadow: 2px 2px 7px #888888;
 }
@@ -42,12 +41,59 @@ a:hover.navbarlink
 {
 background-color:grey;
 }
+.navbarhead
+{
+font-family:Arial,Helvetica,Sans-serif;
+display:block;
+color:black;
+padding:0px;
+text-decoration:none;
+text-transform:lowercase;
+border-style:solid;
+border-width:1px;
+border-top:none;
+border-left:none;
+border-right:none;
+border-color:#707070;
+}
+
+
+.navbarsec
+{
+position:absolute;
+left:-173px;
+top:300px;
+width:100px;
+text-align:center;
+background-color:#D0D0D0;
+border-style:solid;
+border-color:#383838;
+padding:5px;
+box-shadow: 2px 2px 7px #888888;
+}
+.navbarlinksec
+{
+font-family:Arial,Helvetica,Sans-serif;
+display:block;
+color:black;
+padding:0px;
+text-decoration:none;
+text-transform:uppercase;
+border-style:solid;
+border-width:1px;
+border-top:none;
+border-left:none;
+border-right:none;
+border-color:#C0C0C0;
+}
+
 
 
 div.content
 {
 position:relative;
-width:500px;
+align:center;
+width:700px;
 left:170px;
 }
 
@@ -69,3 +115,27 @@ border-color:grey;
 border-style:solid;
 padding:5px;
 }
+
+table
+{
+border-collapse:collapse;
+}
+table, td, th
+{
+border:3px solid grey;
+vertical-align:middle;
+padding:5px;
+box-shadow: 2px 2px 7px #888888;
+}
+
+th
+{
+background-color:grey;
+}
+td.empty
+{
+background-color:red;
+}
+
+
+

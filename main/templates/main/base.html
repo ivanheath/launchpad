@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" type="test/css" href="{% static 'main/main.css' %}">
+</head>
+<body>
+
+   <div class="navbar">
+   <a href="{% url index %}" class="navbarhead">{{ username }}</a>
+   <a href="http://10.15.14.101/AlphaInventoryManager/" class="navbarlink" target="_blank">Alpha</a>
+   <a href="http://omega.wowrack.com/support/" class="navbarlink" target="_blank">Omega</a>
+   <a href="https://portal.wowrack.com/wiki/Wiki%20Pages/Datacenter%20Tech%20Support%20Wiki.aspx" class="navbarlink" target="_blank">DC team Wiki</a>
+   <a href="https://esupport.wowrack.com/staff/index.php?/Base/Home/Index" class="navbarlink" target="_blank">Wowrack</a>
+   <a href="https://esupport.serverstadium.com/staff/index.php?/Base/Dashboard/Index" class="navbarlink" target="_blank">Server Stadium</a>
+   <a href="https://10.10.6.102/ssaddip/" class="navbarlink" target="_blank">IP Assigner</a>
+   <a href="{% url drivetool %}" class="navbarlink">Drivetool</a>
+   <a href="{% url logout %}" class="navbarlink" style="border-style:none;">logout</a>
+   </div>
+  <div class="content">
+   {% block sidebar %}{% endblock %}
+   {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
