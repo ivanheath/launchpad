@@ -12,8 +12,8 @@ padding:3px;
 .navbar
 {
 position:absolute;
-left:5px;
-top:5px;
+left:25px;
+top:21px;
 width:100px;
 text-align:center;
 background-color:#D0D0D0;
@@ -61,8 +61,8 @@ border-color:#707070;
 .navbarsec
 {
 position:absolute;
-left:-173px;
-top:300px;
+left:-153px;
+top:260px;
 width:100px;
 text-align:center;
 background-color:#D0D0D0;

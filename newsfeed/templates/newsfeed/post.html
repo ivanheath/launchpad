@@ -3,7 +3,7 @@
 post to news
 {% endblock %}
 {% block content %}
-<h3>post to the news feed</h3>
+<h1 id="newstitle">post to the news feed</h1>
 <form name="addnews" action="{% url posttonews %}" method="POST">
 {% csrf_token %}
 <p>title:<input type="text" name="title"></p>

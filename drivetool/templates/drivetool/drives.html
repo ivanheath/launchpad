@@ -3,10 +3,8 @@
 Drive Tools
 {% endblock %}
 {% block content %}
+<h1 id="newstitle">Hard Drive List</h1>
 <table align = 'center' border=1>
-<tr>
-    <th colspan=4>Hard Drive List</th>
-</tr>
 {% for i in hddlist %}
 {% cycle '<tr>' '' '' '' %}
 <td align='center'{% if i.serial == "EMPTY" %} class="empty"{% endif %}>
