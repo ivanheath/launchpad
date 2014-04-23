@@ -3,9 +3,89 @@
 <div class="navbarsec">
 <div class="navbarhead">Tools</div>
 <a href="{% url drivetool %}" class="navbarlink">scan</a>
-<a href="{% url wipedrives %}" class="navbarlink">wipe</a>
-<a href="{% url cleandrives %}" class="navbarlink">clean</a>
-<a href="{% url clonedrives %}" class="navbarlink">clone</a>
+<div id="checkstatus" class="navbarlink" onclick="javascript:checkstatus()">status</div>
+<div id="wipeverify" class="navbarlink" onclick="javascript:wipeverify()">wipe</div>
+<div id="cleanverify" class="navbarlink" onclick="javascript:cleanverify()">clean</div>
+<div id="cloneverify" class="navbarlink" onclick="javascript:cloneverify()">clone</div>
 <a href="{% url configure %}" class="navbarlink">configure</a>
 </div>
 {% endblock %}
+{% block javascript %}
+function wipeverify()
+    {
+    $.ajax({
+        url: '{% url wipeverify %}',
+        success: function(data) {
+            $("#popup").addClass("popup");
+            $("#popup").html(data);
+        }
+    });
+    }
+function cleanverify()
+    {
+    $.ajax({
+        url: '{% url cleanverify %}',
+        success: function(data) {
+            $("#popup").addClass("popup");
+            $("#popup").html(data);
+        }
+    });
+    }
+function cloneverify()
+    {
+    $.ajax({
+        url: '{% url cloneverify %}',
+        success: function(data) {
+            $("#popup").addClass("popup");
+            $("#popup").html(data);
+        }
+    });
+    }
+
+function wiped()
+    {
+    $.ajax({
+        url: '{% url wipedrives %}',
+        success: function(data) {
+            $("#popup").addClass("popup");
+            $("#popup").html(data);
+        }
+    });
+    }
+
+function cleaned()
+    {
+    $.ajax({
+        url: '{% url cleandrives %}',
+        success: function(data) {
+            $("#popup").addClass("popup");
+            $("#popup").html(data);
+        }
+    });
+    }
+
+function cloned()
+    {
+    $.ajax({
+        url: '{% url clonedrives %}',
+        success: function(data) {
+            $("#popup").addClass("popup");
+            $("#popup").html(data);
+        }
+    });
+    }
+
+function checkstatus()
+    {
+    $.ajax({
+        url: '{% url checkstatus %}',
+        success: function(data) {
+            $("#popup").addClass("popup");
+            $("#popup").html(data);
+        }
+    });
+    }
+
+
+{% endblock %}
+

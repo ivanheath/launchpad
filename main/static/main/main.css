@@ -13,7 +13,7 @@ padding:3px;
 {
 position:absolute;
 left:25px;
-top:21px;
+top:43px;
 width:100px;
 text-align:center;
 background-color:#D0D0D0;
@@ -41,6 +41,10 @@ a:hover.navbarlink
 {
 background-color:grey;
 }
+div:hover.navbarlink
+{
+background-color:grey;
+}
 .navbarhead
 {
 font-family:Arial,Helvetica,Sans-serif;
@@ -50,7 +54,7 @@ padding:0px;
 text-decoration:none;
 text-transform:lowercase;
 border-style:solid;
-border-width:1px;
+border-width:2px;
 border-top:none;
 border-left:none;
 border-right:none;
@@ -61,8 +65,8 @@ border-color:#707070;
 .navbarsec
 {
 position:absolute;
-left:-153px;
-top:260px;
+left:25px;
+top:310px;
 width:100px;
 text-align:center;
 background-color:#D0D0D0;
@@ -92,28 +96,37 @@ border-color:#C0C0C0;
 div.content
 {
 position:relative;
-align:center;
+margin-left:auto;
+margin-right:auto;
 width:700px;
-left:170px;
+right:75px;
 }
 
-.outside
+#outside
 {
 position:relative;
-width:90%;
-align:center;
+top:-8px;
+margin:0;
+padding:22px;
+width:1150px;
+min-height:100vh;
+margin-left:auto;
+margin-right:auto;
+background-color:white;
 }
 #newstitle
 {
 background-color:grey;
 text-align:center;
+box-shadow: 2px 2px 7px #888888;
 }
 .news
 {
 border-width:1px;
 border-color:grey;
 border-style:solid;
-padding:5px;
+margin:0px;
+padding-left:20px;
 }
 
 table
@@ -137,5 +150,31 @@ td.empty
 background-color:red;
 }
 
+.popup
+{
+display:block;
+position:absolute;
+left:300px;
+top:200px;
+z-index:1000;
+width:500px;
+text-align:center;
+background-color:#D0D0D0;
+border-style:solid;
+border-color:#383838;
+padding:5px;
+box-shadow: 10px 10px 20px #888888;
+}
 
+#rightstuff
+{
+position:absolute;
+right:25px;
+top:43px;
+}
+
+#mainttra
+{
+position:relative;
+}
 

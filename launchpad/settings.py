@@ -129,6 +129,9 @@ INSTALLED_APPS = (
     'main',
     'newsfeed',
     'drivetool',
+    'shotclock',
+    'maintenancetracker',
+    'edituser',
 )
 
 # A sample logging configuration. The only tangible logging

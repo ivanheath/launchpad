@@ -2,6 +2,44 @@
 {% block sidebar %}
 <div class="navbarsec">
 <div class="navbarhead">news</div>
-<a href="{% url postnews %}" class="navbarlink">post</a>
+<div id="newspost" class="navbarlink" onclick="javascript:newspost()">post</div>
+<div id="message" class="navbarlink" onclick="javascrpt:message()">message</div>
+<div id="delete" class="navbarlink" onclick="javascript:deletenews()">delete</div>
 </div>
+{% endblock %}
+{% block javascript %}
+function newspost()
+    {
+    $.ajax({
+	url: '{% url postnews %}',
+	success: function(data) {
+	    $("#popup").addClass("popup");
+	    $("#popup").html(data);
+	}
+    });
+    }
+
+function message()
+    {
+    $.ajax({
+        url: '{% url message %}',
+        success: function(data) {
+            $("#popup").addClass("popup");
+            $("#popup").html(data);
+        }
+    });
+    }
+
+function deletenews()
+    {
+    $.ajax({
+        url: '{% url deletenewspost %}',
+        success: function(data) {
+            $("#popup").addClass("popup");
+            $("#popup").html(data);
+        }
+    });
+    }
+
+
 {% endblock %}

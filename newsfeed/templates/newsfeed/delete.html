@@ -1,0 +1,16 @@
+<div align="right" onclick="javascript:closepopup()">close</div>
+<h1>delete a post</h1>
+<form name="deletenews" action="{% url newsdeleted %}" method="POST">
+{% csrf_token %}
+<select name="newsid">
+<option value="null">------------------------------------</option>
+{% for i in newsitems %}
+<option value="{{ i.id }}">{{ i.news_title }} : {{ i.pub_date }}</options>
+{% endfor %}
+<option value="null">------------------------------------</option>
+<input type="submit" value="deletepost" />
+</form>
+</form>
+
+
+

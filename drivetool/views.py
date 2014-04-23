@@ -5,13 +5,56 @@ from django.contrib.auth import authenticate
 from login.views import index
 import subprocess
 
-def main(request):
+def check(request):
     if request.user.is_authenticated():
 	username = request.user.username
-	#test = subprocess.check_output("echo drivetool | ssh -t web@10.15.14.27 sudo -S -k ls", shell=True)
-	return render(request, 'drivetool/main.html',
-	    {"username":username,
-	    })
+	try:
+	    check = subprocess.check_output("ssh web@10.15.14.27 ps aux | grep [d]cfldd", shell=True)
+	    return render(request, 'drivetool/inuse.html',
+		     {"username":username,
+		     })
+	except:
+	    return render(request, 'drivetool/popup.html',
+		     {"username":username,
+		     })
+    else:
+	return index(request)
+
+def wipeverify(request):
+    if request.user.is_authenticated():
+        username = request.user.username
+        return render(request, 'drivetool/wipeverify.html',
+                     {"username":username,
+                     })
+    else:
+	return index(request)
+
+def cleanverify(request):
+    if request.user.is_authenticated():
+        username = request.user.username
+        return render(request, 'drivetool/cleanverify.html',
+                     {"username":username,
+                     })
+    else:
+	return index(request)
+
+def cloneverify(request):
+    if request.user.is_authenticated():
+        username = request.user.username
+        return render(request, 'drivetool/cloneverify.html',
+                     {"username":username,
+                     })
+    else:
+	return index(request)
+
+def checkstatus(request):
+    if request.user.is_authenticated():
+        username = request.user.username
+	remotepass = "echo drivetool | ssh web@10.15.14.27 sudo -S -k "
+
+        return render(request, 'drivetool/checkstatus.html',
+                     {"username":username,
+                     })
     else:
 	return index(request)
 

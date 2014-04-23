@@ -1,0 +1,8 @@
+<table>
+<th colspan="3">Current Builds</th>
+{% for i in list %}
+{% cycle '<tr>' '' '' %}
+<td>{{ i }}</td>
+{% cycle '' '' '</tr>' %}
+{% endfor %}
+</table>

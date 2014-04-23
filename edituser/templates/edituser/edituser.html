@@ -1,0 +1,31 @@
+{% extends "main/base.html" %}
+{% block title %}
+Edit User Details
+{% endblock %}
+{% block content %}
+<h1 id="newstitle">User Details</h1>
+<div class="news">
+    <form name="edituser" action="{% url savechanges %}" method="POST">
+    {% csrf_token %}
+	<div><label>Username: </label>{{ username }}</div>
+	<div><label>First name:</label><input name="firstname" type="text" value="{{ userdetails.first_name }}" /></div>
+	<div><label>Last name:</label><input name="lastname" type="text" value="{{ userdetails.last_name }}" /></div>
+	<div><label>Email:</label><input name="email" type="text" value="{{ userdetails.email }}" /></div>
+	<input type="submit" value="Save Changes">
+	<div onclick="javascript:changepassword()" style="float:right;" class="navbarlink">change password</div>
+    </form>
+</div>
+{% endblock %}
+{% block javascript %}
+function changepassword()
+    {
+    $.ajax({
+        url: '{% url changepassword %}',
+        success: function(data) {
+            $("#popup").addClass("popup");
+            $("#popup").html(data);
+        }
+    });
+    }
+
+{% endblock %}

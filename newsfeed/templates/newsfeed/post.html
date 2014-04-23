@@ -1,13 +1,10 @@
-{% extends "newsfeed/side.html" %}
-{% block title %}
-post to news
-{% endblock %}
-{% block content %}
-<h1 id="newstitle">post to the news feed</h1>
+
+<div align="right" onclick="javascript:closepopup()">close</div>
+<h1>post to the news feed</h1>
 <form name="addnews" action="{% url posttonews %}" method="POST">
 {% csrf_token %}
-<p>title:<input type="text" name="title"></p>
+<p>title: <input type="text" name="title"></p>
 <textarea rows="10" cols="50" name="newstext"></textarea>
+<input type="hidden" name="receiver" value="null">
 <p><input type="submit" value="post"></p>
 </form>
-{% endblock %}

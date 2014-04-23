@@ -5,11 +5,23 @@ launchpad
 {% block content %}
    <h1 id="newstitle">DC Team News</h1>
 {% for i in currentnews %}
-    <div class="news">
+{% if i.receiver_name == username or i.receiver_name == 'null' %}
+{% if i.receiver_name == username %}
+    <div class="news" style="border-width:2px;border-color:black;">
+    <h2>{{ i.news_title }}</h2>
+    <p>{{ i.news_body }}</p>
+    <h6>sent by: {{ i.user_name }} on: {{ i.pub_date }}</h6>
+    </div>
+    <br />
+
+{% else %}
+    <div class="news" style="border-width:1px;border-color:grey;">
     <h2>{{ i.news_title }}</h2>
     <p>{{ i.news_body }}</p>
     <h6>posted by: {{ i.user_name }} on: {{ i.pub_date }}</h6>
     </div>
     <br />
+{% endif %}
+{% endif %}
 {% endfor %}
 {% endblock %}

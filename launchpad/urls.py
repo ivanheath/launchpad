@@ -14,8 +14,11 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include('edituser.urls')),
     url(r'^', include('main.urls')),
     url(r'^', include('newsfeed.urls')),
     url(r'^', include('drivetool.urls')),
     url(r'^', include('login.urls')),
+    url(r'^', include('shotclock.urls')),
+    url(r'^', include('maintenancetracker.urls')),
 )
