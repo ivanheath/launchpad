@@ -1,11 +1,23 @@
-<div align="right" onclick="javascript:closepopup()">close</div>
-<h2>create a new maintenance</h2>
-<form name="create" action="{% url maintcreated %}" method="POST">
-{% csrf_token %}
-<div>maintenance name:<input type="text" name="maintname"></div>
-<div>maintenance time:<intput type="datetime" name="mainttime"></div>
-<div>ticket number:<input type="text" name="maintticket"></div>
-<div>ticket_link:<input type="text" name="maintlink"></div>
-<div>company:<input type="text" name="maintcompany"></div>
-<div><input type="submit" value="post"></div>
+{% extends "main/base.html" %}
+{% block title %}
+add maintenance
+{% endblock %}
+{% block content %}
+<h1 id="newstitle">Create A New Maintenance</h1>
+{% if form.errors %}
+	<p style="color: red;">
+		please correct the error{{ form.errors|pluralize }} below.
+	</p>
+{% endif %}
 
+<form action="" method="POST">
+<table align="center">
+	{{ form.as_table }}
+
+{% csrf_token %}
+<tr><th></th><td>
+<input type="submit" value="submit">
+</td></tr>
+</table>
+</form>
+{% endblock %}

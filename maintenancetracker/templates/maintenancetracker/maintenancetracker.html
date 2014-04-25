@@ -1,8 +1,14 @@
-<table>
-<th colspan="3">Upcoming Maintanences</th>
+
+<table id="side" style="font-size:75%">
+<th colspan="4" style="font-size:125%">upcoming maintenances</th>
+{% for i in currentmaintlist %}
 <tr>
-<td>temp</td>
-<td>temp</td>
-<td>temp</td>
+<td colspan="2" align="center" style="background-color:#D0D0D0">{{ i.maint_name }}</td>
 </tr>
+<tr>
+<td><a href="{{ i.ticket_link }}" target="new">{{ i.ticket_number }}</a></td>
+
+<td>{{ i.maint_time }}</td>
+</tr>
+{% endfor %}
 </table>

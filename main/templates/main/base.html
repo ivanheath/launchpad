@@ -16,6 +16,28 @@ function drivetool()
     });
     }
 
+function maintcreate()
+    {
+    $.ajax({
+        url: '{% url maintcreate %}',
+        success: function(data) {
+            $("#popup").addClass("popup");
+            $("#popup").html(data);
+        }
+    });
+    }
+
+function maintdelete()
+    {
+    $.ajax({
+        url: '{% url maintdelete %}',
+        success: function(data) {
+            $("#popup").addClass("popup");
+            $("#popup").html(data);
+        }
+    });
+    }
+
 
 
 function closepopup()
@@ -24,18 +46,24 @@ function closepopup()
 	$("#popup").html("");
     }
 
-var seconds = 600;
 $(document).ready(setInterval(function()
     {
     $.ajax({
-	url: "{% url shotclock %}",
+	async: false,
+        url: "{% url shotclock %}",
         success: function(data) {
             $("#shotclock").html(data);
             }
         });
+    $.ajax({
+	async: false,
+	url: "{% url mainttrack %}",
+	success: function(data){
+	    $("#mainttrack").html(data);
+	    }
+	});
 
-    }), seconds * 10000);
-
+    }), 1000000);
 {% block javascript %}{% endblock %}
 {% block javascript2 %}{% endblock %}
 </script>
@@ -51,7 +79,7 @@ $(document).ready(setInterval(function()
 			<a href="https://portal.wowrack.com/wiki/Wiki%20Pages/Datacenter%20Tech%20Support%20Wiki.aspx" class="navbarlink" target="_blank">DC team Wiki</a>
 			<a href="https://esupport.wowrack.com/staff/index.php?/Base/Home/Index" class="navbarlink" target="_blank">Wowrack</a>
 			<a href="https://esupport.serverstadium.com/staff/index.php?/Base/Dashboard/Index" class="navbarlink" target="_blank">Server Stadium</a>
-			<a href="https://10.10.6.102/ssaddip/" class="navbarlink" target="_blank">IP Assigner</a>
+			<a href="https://util.wowrack.com/ssaddip/" class="navbarlink" target="_blank">IP Assigner</a>
 			<div id="drivetoollink" class="navbarlink" onclick="javascript:drivetool()">Drivetool</div>
 			<a href="{% url logout %}" class="navbarlink" style="border-style:none;">logout</a>
 		</div>
@@ -66,6 +94,15 @@ $(document).ready(setInterval(function()
 			</div>
 			<br />
 			<br />
+			<div id="mainttrack"></div>
+			
+			<table>
+			<tr>
+			<td id="maintcreate" onclick="javascript:maintcreate()">Create</td>
+			<td id="maintdelete" onclick="javascript:maintdelete()">Delete</td>
+			<td><a href="{% url maintcreate %}">create</a></td>
+			</tr>
+			</table>
 
 			<div id="statusbar">
 			</div>
