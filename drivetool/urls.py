@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url, include
+from django.conf.urls.defaults import *
 from drivetool import views
 
 urlpatterns = patterns('',

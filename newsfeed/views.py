@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from newsfeed.models import newsitem
 from main.views import main
-from django.utils import timezone
 import datetime
 from login.views import index
 from main.views import main as homepage

@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +68,7 @@ $(document).ready(setInterval(function()
 {% block javascript2 %}{% endblock %}
 </script>
 <title>{% block title %}{% endblock %}</title>
-<link rel="stylesheet" type="test/css" href="{% static 'main/main.css' %}">
+<link rel="stylesheet" type="test/css" href="{% get_static_prefix %}/main/main.css">
 </head>
 <body style="background-color:grey;">
 	<div id="outside">

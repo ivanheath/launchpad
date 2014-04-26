@@ -6,7 +6,6 @@ from login.views import index
 from main.views import main as homepage
 from forms import maintform
 from maintenancetracker.models import maintenance
-from django.utils import timezone
 
 def mainttracker(request):
     currentmaintlist = maintenance.objects.filter().order_by('-maint_time')

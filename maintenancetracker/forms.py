@@ -1,6 +1,6 @@
 from django import forms
 import datetime
-from django.utils import timezone
+
 class maintform(forms.Form):
     maintname = forms.CharField(label="maintenance name")
     maintticket = forms.CharField(label="ticket for maintenance")
