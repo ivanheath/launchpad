@@ -1,15 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 <title>DC team Launchpad Login</title>
 </head>
 <body>
-
+<link rel="stylesheet" type="test/css" href="{% get_static_prefix %}/main/main.css">
 <form name="login" action="{% url main %}" method="POST">
 {% csrf_token %}
+<div id="outside">
 <table align="center" border=1>
 <tr>
-<th>welcome to the DC Team Lanchpad</th>
+<th id="title">welcome to the DC Team Lanchpad</th>
 </tr>
 <tr>
 <td>please login</td>
@@ -25,7 +27,7 @@
 </tr>
 </table>
 </form>
-
+</div>
 </body>
 </html>
 

@@ -1,9 +1,9 @@
-{% extends "main/base.html" %}
+{% extends "maintenancetracker/side.html" %}
 {% block title %}
 add maintenance
 {% endblock %}
 {% block content %}
-<h1 id="newstitle">Create A New Maintenance</h1>
+<h1 id="title">Create A New Maintenance</h1>
 {% if form.errors %}
 	<p style="color: red;">
 		please correct the error{{ form.errors|pluralize }} below.

@@ -3,7 +3,7 @@
 launchpad
 {% endblock%}
 {% block content %}
-   <h1 id="newstitle">DC Team News</h1>
+   <h1 id="title">DC Team News</h1>
 {% for i in currentnews %}
 {% if i.receiver_name == username or i.receiver_name == 'null' %}
 {% if i.receiver_name == username %}

@@ -1,0 +1,6 @@
+{% extends "main/base.html" %}
+{% block sidebar %}
+<div class="lefthead">Maintenance</div>
+<a href="{% url maintcreate %}" class="leftlink">create</a>
+<a href="{% url maintdelete %}" class="leftlink">delete</a>
+{% endblock %}

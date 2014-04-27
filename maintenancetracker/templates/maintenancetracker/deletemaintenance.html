@@ -1,8 +1,22 @@
-<div align="right" onclick="javascript:closepopup()">close</div>
-<h2>delete maintanence</h2>
-<form name="delete" action="" method="POST">
+{% extends 'maintenancetracker/side.html' %}
+{% block title %}
+delete a maintenance
+{% endblock %}
+{% block content %}
+<h1 id="title">Delete A Maintanence</h1>
+{% if form.errors %}
+	<p style="color: red;">
+		please correct the error(( form.errors|pluralize}} below.
+	</p>
+{% endif %}
+<form action="" method="POST">
 {% csrf_token %}
-list of items to delete
-<div><input type="submit" value="post"></div>
-
+<table align="center">
+	{{ form.as_table }}
+<tr><td>
+<input type="submit" value="submit">
+</td></tr>
+</table>
+</form>
+{% endblock %}
 

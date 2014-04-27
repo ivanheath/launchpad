@@ -1,11 +1,9 @@
 {% extends "main/base.html" %}
 {% block sidebar %}
-<div class="navbarsec">
-<div class="navbarhead">news</div>
-<div id="newspost" class="navbarlink" onclick="javascript:newspost()">post</div>
-<div id="message" class="navbarlink" onclick="javascrpt:message()">message</div>
-<div id="delete" class="navbarlink" onclick="javascript:deletenews()">delete</div>
-</div>
+<div class="lefthead">news</div>
+<div id="newspost" class="leftlink" onclick="javascript:newspost()">post</div>
+<div id="message" class="leftlink" onclick="javascrpt:message()">message</div>
+<div id="delete" class="leftlink" onclick="javascript:deletenews()">delete</div>
 {% endblock %}
 {% block javascript %}
 function newspost()

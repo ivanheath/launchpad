@@ -3,7 +3,7 @@
 Edit User Details
 {% endblock %}
 {% block content %}
-<h1 id="newstitle">User Details</h1>
+<h1 id="title">User Details</h1>
 <div class="news">
     <form name="edituser" action="{% url savechanges %}" method="POST">
     {% csrf_token %}

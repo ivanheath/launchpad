@@ -7,3 +7,6 @@ class maintenance(models.Model):
     ticket_number = models.CharField(max_length=50)
     ticket_link = models.URLField()
     company = models.CharField(max_length=50)
+
+    def __unicode__(self):
+	return self.maint_name

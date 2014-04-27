@@ -1,8 +1,25 @@
-<table>
-<th colspan="3">Current Builds</th>
+<table style="font-size:75%">
+<th colspan="3" id="title" style="font-size:115%">Current Builds</th>
 {% for i in list %}
 {% cycle '<tr>' '' '' %}
-<td>{{ i }}</td>
+<td>
+{% cycle '<a href="http://omega.wowrack.com/support/product/detail/' '' '' %}
+{{ i }}
+{% cycle '" target="new">' '' '' %}{% cycle i '' '' %}{% cycle '</a>' '' '' %}
+</td>
+
 {% cycle '' '' '</tr>' %}
 {% endfor %}
+<th colspan="3" id="title" style="font-size:115%">upcoming maintenances</th>
+{% for i in currentmaintlist %}
+<tr>
+<td colspan="3" align="center" style="padding:0px;background-color:#D0D0D0">{{ i.maint_name }}</td>
+</tr>
+<tr style="padding:0px;">
+<td><a href="{{ i.ticket_link }}" target="new">{{ i.ticket_number }}</a></td>
+
+<td colspan="2">{{ i.maint_time }}</td>
+</tr>
+{% endfor %}
+
 </table>
