@@ -110,7 +110,7 @@ def wipedrives(request):
                 hddserial = hddserial.stdout.read()[14:].strip()
                 if hddserial != 'WD-WCASYD980519':
                     wipestring = wipestring + "of=/dev/%s " %hdd
-	#subprocess.call(remotepass + wipestring, shell=True)
+	subprocess.call(remotepass + wipestring, shell=True)
 	return render(request, 'drivetool/wipe.html',
 		     {"username":username,
 		     })
@@ -144,7 +144,7 @@ def clonedrives(request):
             return HttpResponse("there are no drives to be cloned. this ain't gonna work")
         else:
             clonestring = clonestring + tobecloned + " &"
-            #subprocess.call([clonestring], shell=True)
+            subprocess.call([clonestring], shell=True)
             return render(request, 'drivetool/clone.html',
 			 {"username":username,
 			 })
@@ -166,8 +166,8 @@ def cleandrives(request):
                 blockcount = int(blockcount)
                 blockcount = blockcount - 2048
                 raidstring = "dcfldd pattern=00 bs=512 count=2048 seek=%s of=/dev/%s &" %(blockcount, hdd)
-                #subprocess.call(remotepass + cleanstring, shell=True)
-                #subprocess.call(remotepass + raidstring, shell=True)
+                subprocess.call(remotepass + cleanstring, shell=True)
+                subprocess.call(remotepass + raidstring, shell=True)
 	return render(request, 'drivetool/clean.html',
 		     {"username":username,
 		     })

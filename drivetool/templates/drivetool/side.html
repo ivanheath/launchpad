@@ -1,11 +1,10 @@
 {% extends "main/base.html" %}
 {% block sidebar %}
 <div class="lefthead">Tools</div>
-<a href="{% url drivetool %}" class="navbarlink">scan</a>
-<div id="checkstatus" class="navbarlink" onclick="javascript:checkstatus()">status</div>
-<div id="wipeverify" class="navbarlink" onclick="javascript:wipeverify()">wipe</div>
-<div id="cleanverify" class="navbarlink" onclick="javascript:cleanverify()">clean</div>
-<div id="cloneverify" class="navbarlink" onclick="javascript:cloneverify()">clone</div>
+<a href="{% url drivetool %}" class="leftlink">scan</a>
+<div id="wipeverify" class="leftlink" onclick="javascript:wipeverify()">wipe</div>
+<div id="cleanverify" class="leftlink" onclick="javascript:cleanverify()">clean</div>
+<div id="cloneverify" class="leftlink" onclick="javascript:cloneverify()">clone</div>
 {% endblock %}
 {% block javascript %}
 function wipeverify()
