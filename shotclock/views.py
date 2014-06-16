@@ -30,10 +30,10 @@ def clock(request):
 	list.append(x.replace(second=0, microsecond=0) - y.replace(second=0, microsecond=0))
     
     currentmaintlist = maintenance.objects.filter().order_by('-maint_time')
-    for i in currentmaintlist:
-	timer = datetime.datetime.now() - datetime.timedelta(hours=1)
-	if i.maint_time <= timer:
-	    i.delete()
+#    for i in currentmaintlist:
+#	timer = datetime.datetime.now() - datetime.timedelta(hours=1)
+#	if i.maint_time <= timer:
+#	    i.delete()
     return render(request, 'shotclock/shotclock.html',
 	{"list": list,
 	 "currentmaintlist": currentmaintlist,

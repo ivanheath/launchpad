@@ -50,7 +50,7 @@ def cloneverify(request):
 def checkstatus(request):
     if request.user.is_authenticated():
         username = request.user.username
-	remotepass = "echo drivetool | ssh web@10.15.14.27 sudo -S -k "
+	remotepass = "ssh web@10.15.14.27 "
 
         return render(request, 'drivetool/checkstatus.html',
                      {"username":username,
@@ -62,13 +62,14 @@ def scandrives(request):
     if request.user.is_authenticated():
 	username = request.user.username
 	harddrivelist = []
-	remotepass = "echo drivetool | ssh web@10.15.14.27 sudo -S -k "
+	remotepass = "ssh web@10.15.14.27 "
 	for i in range(98, 122):
 	    hddletter = chr(i)
 	    hdd = subprocess.Popen(remotepass + "ls /sys/block | grep sd%s" %hddletter, shell=True, stdout=subprocess.PIPE)
 	    hdd = hdd.stdout.read().strip()
 	    if hdd != '':
-		hddinfo = subprocess.check_output(remotepass + "smartctl -a /dev/%s" %hdd, shell=True).splitlines()
+		hddinfo = subprocess.Popen(remotepass + "sudo smartctl -a /dev/%s" %hdd, shell=True, stdout=subprocess.PIPE)
+		hddinfo = hddinfo.stdout.read().splitlines()
 		hddmodel = hddinfo[5]
 		hddmodel = "Model" + hddmodel[12:]
 		hddserial = hddinfo[6]
@@ -99,14 +100,14 @@ def wipedrives(request):
     if request.user.is_authenticated():
         username = request.user.username
 	hddlist = []
-	remotepass = "echo drivetool | ssh web@10.15.14.27 sudo -S -k "
-	wipestring = "dcfldd pattern=00 "
+	remotepass = "ssh web@10.15.14.27 "
+	wipestring = "sudo dcfldd pattern=00 "
 	for i in range(98, 122):
             hddletter = chr(i)
             hdd = subprocess.Popen(remotepass + "ls /sys/block | grep sd%s" %hddletter, stdout=subprocess.PIPE, shell=True)
             hdd = hdd.stdout.read().strip()
             if hdd != '':
-                hddserial = subprocess.Popen(remotepass + "smartctl -a /dev/%s | grep 'Serial Number'" %hdd, stdout=subprocess.PIPE, shell=True)
+                hddserial = subprocess.Popen(remotepass + "sudo smartctl -a /dev/%s | grep 'Serial Number'" %hdd, stdout=subprocess.PIPE, shell=True)
                 hddserial = hddserial.stdout.read()[14:].strip()
                 if hddserial != 'WD-WCASYD980519':
                     wipestring = wipestring + "of=/dev/%s " %hdd
@@ -122,8 +123,8 @@ def clonedrives(request):
 	username=request.user.username
 	hddlist = []
 	goodmark = 0
-	remotepass = "echo drivetool | ssh web@10.15.14.27 sudo -S -k "
-	clonestring = "dcfldd if=/dev/"
+	remotepass = "ssh web@10.15.14.27 "
+	clonestring = "sudo dcfldd if=/dev/"
 	tobecloned = ""
 	for i in range(98, 122):
             hddletter = chr(i)
@@ -154,18 +155,18 @@ def clonedrives(request):
 def cleandrives(request):
     if request.user.is_authenticated():
         username = request.user.username
-	remotepass = "echo drivetool | ssh web@10.15.14.27 sudo -S -k "
+	remotepass = "ssh web@10.15.14.27 "
 	for i in range(98, 122):
             hddletter = chr(i)
             hdd = subprocess.Popen(remotepass + "ls /sys/block | grep sd%s" %hddletter, stdout=subprocess.PIPE, shell=True)
             hdd = hdd.stdout.read().strip()
             if hdd != '':
-                cleanstring = "dcfldd pattern=00 bs=512 count=1024 of=/dev/%s &" %hdd
-                blockcount = subprocess.Popen(remotepass + "blockdev --getsz /dev/%s" %hdd, stdout=subprocess.PIPE, shell=True)
+                cleanstring = "sudo dcfldd pattern=00 bs=512 count=1024 of=/dev/%s &" %hdd
+                blockcount = subprocess.Popen(remotepass + "sudo blockdev --getsz /dev/%s" %hdd, stdout=subprocess.PIPE, shell=True)
                 blockcount = blockcount.stdout.read().strip()
                 blockcount = int(blockcount)
                 blockcount = blockcount - 2048
-                raidstring = "dcfldd pattern=00 bs=512 count=2048 seek=%s of=/dev/%s &" %(blockcount, hdd)
+                raidstring = "sudo dcfldd pattern=00 bs=512 count=2048 seek=%s of=/dev/%s &" %(blockcount, hdd)
                 subprocess.call(remotepass + cleanstring, shell=True)
                 subprocess.call(remotepass + raidstring, shell=True)
 	return render(request, 'drivetool/clean.html',
